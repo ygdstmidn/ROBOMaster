@@ -26,14 +26,16 @@ namespace ROBOMaster
         {
             if (ROBOMAS_OUTPUT_MIN<=speed&&speed<=ROBOMAS_OUTPUT_MAX)
             {
-                motor_output[motor_no-1]=speed;
+                motor_output[motor_no*2-2]=(speed&0XFF00)>>8;
+                motor_output[motor_no*2-1]=(speed&0X00FF);
             }
         }
     }
 
     void ROBOMaster::write()
     {
-        can_bus->write(CANMessage(ROBOMAS_ADDRESS_1,));
+        can_bus->write(CANMessage(ROBOMAS_ADDRESS_1,&motor_output[0],8));
+        can_bus->write(CANMessage(ROBOMAS_ADDRESS_2,&motor_output[8],8));
     }
 
 } // namespace ROBOMaster

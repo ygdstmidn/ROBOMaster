@@ -17,18 +17,11 @@ namespace ROBOMaster
 #define ROBOMAS_ADDRESS_1       0X200
 #define ROBOMAS_ADDRESS_2       0X1FF
 
-union ROBOMAS_OUTPUT
-{
-    int16_t speed_data;
-    int8_t  send_data[2];
-};
-
-
 class ROBOMaster
 {
     private:
         CAN *can_bus;
-        int16_t motor_output[8];
+        char motor_output[16];
     public:
         /**
          * ロボマスモータを使うためのインスタンスを作成します．
@@ -48,6 +41,11 @@ class ROBOMaster
 
         ~ROBOMaster();
 
+        /**
+         * ロボマスモータの制御電流値を設定します．
+         * @param motor_no 設定するモータ番号(1~8)
+         * @param speed    設定したい制御電流値()
+        */
         void set_speed(int motor_no,int16_t speed);
 
         void write();
