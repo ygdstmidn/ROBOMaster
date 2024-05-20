@@ -1,1 +1,4 @@
-#ifndef
+#ifndef INCLUDE_ROBOMASTER_CONFIG_H
+#define INCLUDE_ROBOMASTER_CONFIG_H
+
+#endif
