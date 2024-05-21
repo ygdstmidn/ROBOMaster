@@ -50,4 +50,6 @@ class ROBOMaster
 }//namespace lib_ygdstmidn
 }//namespace mbed
 
+using namespace mbed::lib_ygdstmidn::ROBOMaster;
+
 #endif
