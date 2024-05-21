@@ -1,8 +1,9 @@
 #ifndef INCLUDE_ROBOMASTER_H
 #define INCLUDE_ROBOMASTER_H
 
-#define DEVICE_CAN 1
+#define DEVICE_CAN 1//ソースコードに赤文字が出ちゃうので
 #include "mbed.h"
+#include "ROBOMaster_config.h"
 
 namespace mbed
 {
@@ -10,12 +11,6 @@ namespace lib_ygdstmidn
 {
 namespace ROBOMaster
 {
-
-#define ROBOMAS_BAUDRATE        1*1000*1000
-#define ROBOMAS_OUTPUT_MAX      1*100*100
-#define ROBOMAS_OUTPUT_MIN      -1*100*100
-#define ROBOMAS_ADDRESS_1       0X200
-#define ROBOMAS_ADDRESS_2       0X1FF
 
 class ROBOMaster
 {
@@ -44,7 +39,7 @@ class ROBOMaster
         /**
          * ロボマスモータの制御電流値を設定します．
          * @param motor_no 設定するモータ番号(1~8)
-         * @param speed    設定したい制御電流値()
+         * @param speed    設定したい制御電流値(-10000~10000)
         */
         void set_speed(int motor_no,int16_t speed);
 
