@@ -32,10 +32,11 @@ namespace ROBOMaster
         }
     }
 
-    void ROBOMaster::write()
+    int ROBOMaster::write()
     {
-        can_bus->write(CANMessage(ROBOMAS_ADDRESS_1,&motor_output[0],8));
-        can_bus->write(CANMessage(ROBOMAS_ADDRESS_2,&motor_output[8],8));
+        return
+        (can_bus->write(CANMessage(ROBOMAS_ADDRESS_1,&motor_output[0],8)))*
+        (can_bus->write(CANMessage(ROBOMAS_ADDRESS_2,&motor_output[8],8)));
     }
 
 } // namespace ROBOMaster

@@ -43,7 +43,10 @@ class ROBOMaster
         */
         void set_speed(int motor_no,int16_t speed);
 
-        void write();
+        /**
+         * ロボマスモータにCANでデータを送ります．
+        */
+        int write();
 };//class ROBOMaster
 
 }//namespace ROBOMaster
