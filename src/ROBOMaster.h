@@ -38,8 +38,8 @@ class ROBOMaster
 
         /**
          * ロボマスモータの制御電流値を設定します．
-         * @param motor_no 設定するモータ番号(1~8)
-         * @param speed    設定したい制御電流値(-10000~10000)
+         * @param motor_no 設定するモータ番号(1～8)
+         * @param speed    設定したい制御電流値(-10000～10000)
         */
         void set_speed(int motor_no,int16_t speed);
 
