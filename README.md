@@ -2,6 +2,12 @@
 ロボマスモータを動かすためのライブラリです．
 
 ロボマスモータ専用のモータードライバを使うことを前提としています．
+
+# ROBOMasterクラス
+
+## インスタンス化
+## パブリックメンバ関数
+
 # 参考文献
 - [ロボマスモータについて](https://www.robomaster.com/zh-CN/products/components/general/M2006)
 - [モータードライバについて](https://store.dji.com/jp/product/rm-c610-brushless-dc-motor-speed-control?vid=40021)
