@@ -20,16 +20,14 @@ class ROBOMaster
     public:
         /**
          * ロボマスモータを使うためのインスタンスを作成します．
-         * @param rd read from transmitter
-         * @param td transmit to transmitter
+         * @param rd read from transmitter (TDピン)
+         * @param td transmit to transmitter (RDピン)
         */
         ROBOMaster(PinName rd,PinName td);
 
         /**
          * ロボマスモータを使うためのインスタンスを作成します．
          * @param pinmap reference to structure which holds static pinmap
-         * @param td the transmit pin
-         * @param hz the bus frequency in hertz
          */
         ROBOMaster(const can_pinmap_t &pinmap);
         ROBOMaster(const can_pinmap_t &&) = delete; // prevent passing of temporary objects
@@ -45,6 +43,9 @@ class ROBOMaster
 
         /**
          * ロボマスモータにCANでデータを送ります．
+         * @return 
+         * 0 if write failed (失敗),
+         * 1 if write was successful (成功)
         */
         int write();
 };//class ROBOMaster
