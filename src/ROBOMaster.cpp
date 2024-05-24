@@ -39,6 +39,16 @@ namespace ROBOMaster
         (can_bus->write(CANMessage(ROBOMAS_ADDRESS_2,&motor_output[8],8)));
     }
 
+    int ROBOMaster::read()
+    {
+        int i=0;
+        while(can_bus->read(*readbox))
+        {
+            i++;
+        }
+        return readbox->len;
+    }
+
 }//namespace ROBOMaster
 }//namespace lib_ygdstmidn
 }//namespace mbed
