@@ -17,7 +17,7 @@ class ROBOMaster
     private:
         CAN *can_bus;
         char motor_output[16];
-        CANMessage  *readbox=new CANMessage();
+        CANMessage readbox;
     public:
         /**
          * ロボマスモータを使うためのインスタンスを作成します．

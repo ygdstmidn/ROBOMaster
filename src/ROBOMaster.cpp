@@ -34,7 +34,7 @@ namespace ROBOMaster
 
     int ROBOMaster::write()
     {
-        return
+        return//2つwriteする．どちらも成功すると1，どちらか一方が失敗すると0．
         (can_bus->write(CANMessage(ROBOMAS_ADDRESS_1,&motor_output[0],8)))*
         (can_bus->write(CANMessage(ROBOMAS_ADDRESS_2,&motor_output[8],8)));
     }
@@ -42,11 +42,11 @@ namespace ROBOMaster
     int ROBOMaster::read()
     {
         int i=0;
-        while(can_bus->read(*readbox))
+        while(can_bus->read(readbox))
         {
             i++;
         }
-        return readbox->len;
+        return readbox.len;
     }
 
 }//namespace ROBOMaster
