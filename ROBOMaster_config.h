@@ -15,6 +15,7 @@ namespace ROBOMaster
 
 #define ROBOMAS_ADDRESS_1       0X200
 #define ROBOMAS_ADDRESS_2       0X1FF
+#define ROBOMAS_ADDRESS_READ    0X200
 
 }//namespace ROBOMaster
 }//namespace lib_ygdstmidn

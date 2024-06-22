@@ -12,12 +12,21 @@ namespace lib_ygdstmidn
 namespace ROBOMaster
 {
 
+struct robomas_read
+{
+    int16_t kikaikaku;
+    int16_t sokudo;
+    int16_t toruku;
+};
+
 class ROBOMaster
 {
     private:
         CAN *can_bus;
         char motor_output[16];
         CANMessage readbox;
+        robomas_read read_data[8];
+
     public:
         /**
          * ロボマスモータを使うためのインスタンスを作成します．

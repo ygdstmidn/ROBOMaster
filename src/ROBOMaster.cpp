@@ -37,16 +37,18 @@ namespace ROBOMaster
         return//2つwriteする．どちらも成功すると1，どちらか一方が失敗すると0．
         (can_bus->write(CANMessage(ROBOMAS_ADDRESS_1,&motor_output[0],8)))*
         (can_bus->write(CANMessage(ROBOMAS_ADDRESS_2,&motor_output[8],8)));
-    }
+    }//この書き方がキモイことは分かってるんですが，これで動いてるので許してください．
 
     int ROBOMaster::read()
     {
-        int i=0;
         while(can_bus->read(readbox))
         {
-            i++;
+            int id = readbox.id-ROBOMAS_ADDRESS_READ;
+            read_data[id].kikaikaku=(readbox.data[0]<<8)|readbox.data[1];
+            read_data[id].sokudo=(readbox.data[2]<<8)|readbox.data[3];
+            read_data[id].toruku=(readbox.data[4]<<8)|readbox.data[5];
         }
-        return readbox.len;
+        return 0;
     }
 
 }//namespace ROBOMaster
